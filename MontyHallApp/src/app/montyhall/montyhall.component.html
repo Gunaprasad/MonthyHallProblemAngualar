@@ -1,0 +1,28 @@
+
+<div class="card">
+
+<div class="card-body">
+  <div>
+    <h1>Monty Hall Problem</h1>
+ </div>
+  <form [formGroup]="angform" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="Simulations">Total Number of Simulations</label> 
+      <input formControlName="simulations" type="text" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.simulations.errors }"/>
+      <div *ngIf="submitted && f.simulations.errors" class="invalid-feedback">
+        <div *ngIf="f.simulations.errors.required">Simulation is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="ChangeDoor"> Switch Door </label>
+      <input formControlName="changedoor" type="checkbox" class="form-control" />
+    </div>
+    <div class="form-group">
+      <button type="submit"> Submit </button>
+    </div>
+    <div *ngIf="objMontyHall.wins">
+        <label> Wins : {{objMontyHall.wins}} </label> <label> Losses : {{objMontyHall.losses}}</label>
+    </div>
+  </form>
+</div>
+</div>
